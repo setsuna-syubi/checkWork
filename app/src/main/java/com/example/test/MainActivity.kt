@@ -1,5 +1,6 @@
 package com.example.test
 
+import android.graphics.Color
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,26 +16,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        var number = 0
+        plus.setBackgroundColor(Color.parseColor(#47885e))
+        minus.setBackgroundColor(Color.parseColor(#47885e))
+        plusdecade.setBackgroundColor(Color.parseColor(#47885e))
+        minusdecade.setBackgroundColor(Color.parseColor(#47885e))
+        plus.setOnClickListener {
+            number++
+            Total.setText(number.toString())
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        minus.setOnClickListener {
+            number--
+            Total.setText(number.toString())
+        }
+        plusdecade.setOnClickListener {
+            number = number+10
+            Total.setText(number.toString())
+        }
+        minusdecade.setOnClickListener {
+            number = number-10
+            Total.setText(number.toString())
         }
     }
 }
