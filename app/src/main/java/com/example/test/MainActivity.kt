@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         var number = 0
-        plus.setBackgroundColor(Color.parseColor(#47885e))
-        minus.setBackgroundColor(Color.parseColor(#47885e))
-        plusdecade.setBackgroundColor(Color.parseColor(#47885e))
-        minusdecade.setBackgroundColor(Color.parseColor(#47885e))
+        plus.setBackgroundColor(Color.rgb(160,216,239))
+        minus.setBackgroundColor(Color.rgb(160,216,239))
+        plusdecade.setBackgroundColor(Color.rgb(160,216,239))
+        minusdecade.setBackgroundColor(Color.rgb(160,216,239))
         plus.setOnClickListener {
             number++
             Total.setText(number.toString())
@@ -36,6 +36,12 @@ class MainActivity : AppCompatActivity() {
         minusdecade.setOnClickListener {
             number = number-10
             Total.setText(number.toString())
+            common()
         }
+            Total.setTextColor(Color.rgb())
+    }
+
+    fun common(){
+        // onajisyori
     }
 }
